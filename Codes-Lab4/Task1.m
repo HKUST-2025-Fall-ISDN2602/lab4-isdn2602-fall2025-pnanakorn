@@ -4,12 +4,13 @@ clear all; close all; clc;
 addpath("library_p\");
 
 % Load the input image
-lorem_img = imread('lorem_img.png');
+lorem_img = transpose(imread('lorem_img.png'));
  
 % display the raw image
 figure(1); clf;
 imshow(lorem_img);
 title('Original image');
+
 
 % run-length encode
 run_length_code = runlength_encode(lorem_img);
@@ -18,6 +19,7 @@ runs = bin2decArray(run_length_code);
 
 size_raw_data = length(lorem_img(:))
 size_run_length = length(run_length_code)
+
 
 size_huffman = [];
 dict = [1,0];
